@@ -4,7 +4,7 @@
 
 # Set the name of the cluster
 CLUSTER_NAME="goodnotes-cluster"
-kubectl config use-context kind-goodnotes-cluster
+
 # Create the KinD cluster using the configuration file
 kind create cluster --name $CLUSTER_NAME --config ../kind/cluster-config.yaml
 
