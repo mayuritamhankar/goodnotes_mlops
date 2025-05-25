@@ -34,11 +34,6 @@ jobs:
           chmod +x ./scripts/provision_kind_cluster.sh
           ./scripts/provision_kind_cluster.sh
 
-      - name: Run Tests
-        run: |
-          # Add commands to run your tests here
-          echo "Running tests..." 
-
       - name: Install hey
         run: |
           curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
@@ -47,11 +42,13 @@ jobs:
           echo 'export PATH=$PATH:/usr/local/bin' >> $GITHUB_ENV
           file /usr/local/bin/hey
           ls -l /usr/local/bin/hey
-      
-      - name: Run load test
-        run: |
-          ./hey -c 200 -z 3m https://your-app.example.com
 
+      - name: Run Tests
+        run: |
+          # Add commands to run your tests here
+          echo "Running tests..." 
+          hey -n 100 -c 10 http://localhost:8080/api/test
+      
       - name: Run load test
         run: bash scripts/load_test.sh
 
