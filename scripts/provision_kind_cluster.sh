@@ -25,9 +25,27 @@ kubectl get nodes
 # Additional commands can be added here for further setup if needed.
 echo "Additional commands added here."
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/kind/deploy.yaml
-kubectl wait --namespace ingress-nginx --for=condition=Ready pod --selector=app.kubernetes.io/component=controller --timeout=300s
+
+# Wait for ingress controller deployment to be available
+kubectl wait --namespace ingress-nginx \
+  --for=condition=available deployment/ingress-nginx-controller \
+  --timeout=300s
+
+# Wait for the admission webhook pod to be ready (optional, may not always match selector)
+kubectl wait --namespace ingress-nginx \
+  --for=condition=Ready pod \
+  --selector=app.kubernetes.io/component=admission-webhook \
+  --timeout=120s || true
+
 kubectl apply -f k8s/http-echo.yaml
-kubectl apply -f k8s/http-ingress.yaml
+
+# Retry applying ingress in case webhook is not ready yet
+for i in {1..5}; do
+  kubectl apply -f k8s/http-ingress.yaml && break
+  echo "Retrying ingress apply in 10s..."
+  sleep 10
+done
+
 kubectl get pods -n ingress-nginx
 kubectl get pods
 kubectl get ingress
