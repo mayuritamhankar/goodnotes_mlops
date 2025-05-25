@@ -1,7 +1,10 @@
 name: CI
 
+permissions:
+  pull-requests: write
+  
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main  # Replace with your actual default branch name if different
 
