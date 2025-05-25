@@ -48,10 +48,14 @@ jobs:
           ls /usr
           ls /usr/local
           sudo mkdir -p /usr/local/hey
-          sudo mv hey_linux_amd64 /usr/local/hey
+          sudo cp hey_linux_amd64 /usr/local/hey
           echo 'export PATH=$PATH:/usr/local/hey' >> $GITHUB_ENV
           file /usr/local/hey
       
+      - name: Run load test
+        run: |
+          ./hey -c 200 -z 3m https://your-app.example.com
+
       - name: Run load test
         run: bash scripts/load_test.sh
 
