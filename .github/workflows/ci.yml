@@ -36,7 +36,7 @@ jobs:
 
       - name: Install hey
         run: |
-          curl -sSL -o hey_linux_amd64 https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
+          curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
           file hey_linux_amd64 | grep 'ELF 64-bit' || (echo "Download failed or not a Linux binary" && cat hey_linux_amd64 && exit 1)
           chmod +x hey_linux_amd64
           sudo mv hey_linux_amd64 /usr/local/bin/hey
