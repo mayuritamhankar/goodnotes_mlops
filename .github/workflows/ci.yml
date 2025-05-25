@@ -45,9 +45,12 @@ jobs:
           pwd
           ls
           chmod +x hey_linux_amd64
-          sudo mkdir -p /usr/local/bin
-          sudo mv hey_linux_amd64 /usr/local/bin/hey
-          file /usr/local/bin/hey
+          ls /usr
+          ls /usr/local
+          sudo mkdir -p /usr/local/hey
+          sudo mv hey_linux_amd64 /usr/local/hey
+          echo 'export PATH=$PATH:/usr/local/hey' >> $GITHUB_ENV
+          file /usr/local/hey
       
       - name: Run load test
         run: bash scripts/load_test.sh
