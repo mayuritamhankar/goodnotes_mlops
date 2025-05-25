@@ -41,6 +41,8 @@ jobs:
           chmod +x hey_linux_amd64
           ls /usr/local/bin
           sudo mv hey_linux_amd64 /usr/local/bin/hey
+          echo "hey installed successfully"
+          ls /usr/local/bin/hey
 
       - name: Run Tests
         run: |
