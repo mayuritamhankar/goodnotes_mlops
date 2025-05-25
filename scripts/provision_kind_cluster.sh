@@ -25,9 +25,9 @@ kubectl get nodes
 # Additional commands can be added here for further setup if needed.
 echo "Additional commands added here."
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/kind/deploy.yaml
-kubectl wait --namespace ingress-nginx --for=condition=Ready pod --selector=app.kubernetes.io/component=controller --timeout=120s
+kubectl wait --namespace ingress-nginx --for=condition=Ready pod --selector=app.kubernetes.io/component=controller --timeout=300s
 kubectl apply -f k8s/http-echo.yaml
-kubectl apply -f k8s/echo-ingress.yaml
+kubectl apply -f k8s/http-ingress.yaml
 kubectl get pods -n ingress-nginx
 kubectl get pods
 kubectl get ingress
