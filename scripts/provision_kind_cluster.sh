@@ -37,6 +37,17 @@ kubectl wait --namespace ingress-nginx \
   --selector=app.kubernetes.io/component=admission-webhook \
   --timeout=120s || true
 
+# Wait for the admission webhook service endpoints to be created
+for i in {1..30}; do
+  ENDPOINTS=$(kubectl get endpoints -n ingress-nginx ingress-nginx-controller-admission -o jsonpath='{.subsets}')
+  if [[ "$ENDPOINTS" != "" && "$ENDPOINTS" != "null" ]]; then
+    echo "Admission webhook endpoints are ready."
+    break
+  fi
+  echo "Waiting for admission webhook endpoints to be ready..."
+  sleep 5
+done
+
 kubectl apply -f k8s/http-echo.yaml
 
 # Retry applying ingress in case webhook is not ready yet
