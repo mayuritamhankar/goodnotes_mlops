@@ -1,0 +1,21 @@
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.24.0
+  - role: worker
+    image: kindest/node:v1.24.0
+
+networking:
+  disableDefaultCNI: false
+  kubeProxyMode: iptables
+
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    apiServer:
+      extraArgs:
+        enable-admission-plugins: NodeRestriction
+    controllerManager:
+      extraArgs:
+        enable-controller-attach-detach: "true"
