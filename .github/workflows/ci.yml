@@ -44,6 +44,7 @@ jobs:
           curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
           chmod +x hey_linux_amd64
           sudo mv hey_linux_amd64 /usr/local/bin/hey
+          file /usr/local/bin/hey
       
       - name: Run load test
         run: bash scripts/load_test.sh
@@ -57,4 +58,3 @@ jobs:
       - name: Cleanup KinD Cluster
         run: |
           kind delete cluster --name goodnotes-cluster
-          
