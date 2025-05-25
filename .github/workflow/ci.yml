@@ -39,6 +39,21 @@ jobs:
           # Add commands to run your tests here
           echo "Running tests..." 
 
+      - name: Install hey
+        run: |
+          curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_darwin_amd64
+          chmod +x hey_darwin_amd64
+          sudo mv hey_darwin_amd64 /usr/local/bin/hey
+      
+      - name: Run load test
+        run: bash scripts/load_test.sh
+
+      - name: Post results as PR comment
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: load_test_results.txt
+
       - name: Cleanup KinD Cluster
         run: |
           kind delete cluster --name your-cluster-name
