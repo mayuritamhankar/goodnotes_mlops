@@ -36,13 +36,14 @@ jobs:
 
       - name: Install hey
         run: |
-          wget https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
-          file hey_linux_amd64
+          curl -sSL -o hey_linux_amd64 https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
+          file hey_linux_amd64 | grep 'ELF 64-bit' || (echo "Download failed or not a Linux binary" && cat hey_linux_amd64 && exit 1)
           chmod +x hey_linux_amd64
-          ls /usr/local/bin
           sudo mv hey_linux_amd64 /usr/local/bin/hey
-          echo "hey installed successfully"
-          ls /usr/local/bin/hey
+          which hey
+          hey --version || echo "hey installed and executable"
+          ls -l /usr/local/bin/
+          echo $PATH
 
       - name: Run Tests
         run: |
