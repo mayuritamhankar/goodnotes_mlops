@@ -6,7 +6,7 @@ permissions:
 on:
   pull_request:
     branches:
-      - main  # Replace with your actual default branch name if different
+      - main
 
 jobs:
   build:
@@ -57,3 +57,4 @@ jobs:
       - name: Cleanup KinD Cluster
         run: |
           kind delete cluster --name goodnotes-cluster
+          
