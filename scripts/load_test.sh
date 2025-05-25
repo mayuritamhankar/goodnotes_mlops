@@ -9,6 +9,6 @@ echo "" > $RESULTS
 
 for HOST in "${HOSTS[@]}"; do
   echo "Testing $HOST" | tee -a $RESULTS
-  /usr/local/bin/hey -z 10s -c 10 -host "$HOST" http://localhost/ | tee -a $RESULTS
+  hey -z 10s -c 10 -host "$HOST" http://localhost/ | tee -a $RESULTS
   echo "" >> $RESULTS
 done
