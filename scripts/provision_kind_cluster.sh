@@ -6,7 +6,7 @@
 CLUSTER_NAME="goodnotes-cluster"
 
 # Create the KinD cluster using the configuration file
-kind create cluster --name $CLUSTER_NAME --config ../kind/cluster-config.yaml
+kind create cluster --name $CLUSTER_NAME --config kind/cluster-config.yaml
 
 # Check if the cluster was created successfully
 if [ $? -eq 0 ]; then
