@@ -36,12 +36,12 @@ jobs:
 
       - name: Install hey
         run: |
-          curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
-          file hey_linux_amd64 | grep 'ELF 64-bit' || (echo "Download failed or not a Linux binary" && cat hey_linux_amd64 && exit 1)
-          chmod +x hey_linux_amd64
-          sudo mv hey_linux_amd64 /usr/local/bin/hey
-          which hey
-          hey --version || echo "hey installed and executable"
+          curl -LO https://github.com/hatoo/oha/releases/download/v1.8.0/oha-linux-amd64
+          file oha-linux-amd64 | grep 'ELF 64-bit' || (echo "Download failed or not a Linux binary" && cat oha-linux-amd64 && exit 1)
+          chmod +x oha-linux-amd64
+          sudo mv oha-linux-amd64 /usr/local/bin/oha
+          which oha
+          oha --version || echo "oha installed and executable"
           ls -l /usr/local/bin/
           echo $PATH
 
@@ -49,7 +49,7 @@ jobs:
         run: |
           # Add commands to run your tests here
           echo "Running tests..." 
-          # hey -n 100 -c 10 http://localhost:8080/api/test
+          # oha -n 100 -c 10 http://localhost:8080/api/test
       
       - name: Run load test
         run: bash scripts/load_test.sh
