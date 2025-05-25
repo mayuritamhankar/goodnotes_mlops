@@ -42,7 +42,10 @@ jobs:
       - name: Install hey
         run: |
           curl -LO https://github.com/rakyll/hey/releases/download/v0.1.4/hey_linux_amd64
+          pwd
+          ls
           chmod +x hey_linux_amd64
+          sudo mkdir -p /usr/local/bin
           sudo mv hey_linux_amd64 /usr/local/bin/hey
           file /usr/local/bin/hey
       
