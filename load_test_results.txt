@@ -1,0 +1,97 @@
+
+Testing foo.localhost
+
+Summary:
+  Total:	10.0011 secs
+  Slowest:	0.0187 secs
+  Fastest:	0.0002 secs
+  Average:	0.0009 secs
+  Requests/sec:	11004.6369
+  
+  Total data:	440232 bytes
+  Size/request:	4 bytes
+
+Response time histogram:
+  0.000 [1]	|
+  0.002 [107654]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.004 [1853]	|■
+  0.006 [322]	|
+  0.008 [107]	|
+  0.009 [81]	|
+  0.011 [19]	|
+  0.013 [3]	|
+  0.015 [5]	|
+  0.017 [12]	|
+  0.019 [1]	|
+
+
+Latency distribution:
+  10% in 0.0006 secs
+  25% in 0.0007 secs
+  50% in 0.0008 secs
+  75% in 0.0010 secs
+  90% in 0.0013 secs
+  95% in 0.0016 secs
+  99% in 0.0029 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0000 secs, 0.0002 secs, 0.0187 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0024 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0016 secs
+  resp wait:	0.0009 secs, 0.0002 secs, 0.0187 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0007 secs
+
+Status code distribution:
+  [200]	110058 responses
+
+
+
+
+Testing bar.localhost
+
+Summary:
+  Total:	10.0017 secs
+  Slowest:	0.0745 secs
+  Fastest:	0.0002 secs
+  Average:	0.0010 secs
+  Requests/sec:	10412.3680
+  
+  Total data:	416564 bytes
+  Size/request:	4 bytes
+
+Response time histogram:
+  0.000 [1]	|
+  0.008 [103857]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.015 [271]	|
+  0.022 [2]	|
+  0.030 [0]	|
+  0.037 [0]	|
+  0.045 [0]	|
+  0.052 [0]	|
+  0.060 [0]	|
+  0.067 [0]	|
+  0.074 [10]	|
+
+
+Latency distribution:
+  10% in 0.0006 secs
+  25% in 0.0007 secs
+  50% in 0.0008 secs
+  75% in 0.0010 secs
+  90% in 0.0013 secs
+  95% in 0.0017 secs
+  99% in 0.0032 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0000 secs, 0.0002 secs, 0.0745 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0013 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0003 secs
+  resp wait:	0.0009 secs, 0.0002 secs, 0.0745 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0005 secs
+
+Status code distribution:
+  [200]	104141 responses
+
+
+
+
