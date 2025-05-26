@@ -33,7 +33,7 @@ jobs:
           chmod +x ./scripts/provision_kind_cluster.sh
           ./scripts/provision_kind_cluster.sh
 
-      - name: Install hey
+      - name: Install oha
         run: |
           curl -LO https://github.com/hatoo/oha/releases/download/v1.8.0/oha-linux-amd64
           file oha-linux-amd64 | grep 'ELF 64-bit' || (echo "Download failed or not a Linux binary" && cat oha-linux-amd64 && exit 1)
