@@ -7,3 +7,4 @@ task:
 
 load-test:
 	bash scripts/load_test.sh
+	
