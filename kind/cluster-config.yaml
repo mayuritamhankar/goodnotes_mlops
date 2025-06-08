@@ -10,6 +10,8 @@ nodes:
     image: kindest/node:v1.29.2
   - role: worker
     image: kindest/node:v1.29.2
+  - role: worker
+    image: kindest/node:v1.29.2
 
 networking:
   disableDefaultCNI: false
