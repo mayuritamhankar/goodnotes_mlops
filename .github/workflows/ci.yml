@@ -52,3 +52,4 @@ jobs:
       - name: Cleanup KinD Cluster
         run: |
           kind delete cluster --name goodnotes-cluster
+          
