@@ -33,7 +33,7 @@ This repository demonstrates a complete MLOps workflow using Kubernetes, KinD, a
 ### 1. Clone the repository
 
 ```sh
-git clone <repo-url>
+git clone https://github.com/mayuritamhankar/goodnotes_mlops.git
 cd goodnotes_mlops
 ```
 
@@ -111,7 +111,6 @@ No manual steps are needed for CI; everything runs automatically on pull request
   127.0.0.1 foo.localhost
   127.0.0.1 bar.localhost
   ```
-- If you use a different KinD config or cluster name, update the scripts accordingly.
 
 ---
 
@@ -140,10 +139,3 @@ goodnotes_mlops/
 ## Troubleshooting
 
 - If the ingress controller pod is stuck in `Pending`, ensure the control-plane node is labeled with `ingress-ready=true` (the script does this automatically).
-- If load test tools are not found, ensure they are installed and available in your PATH.
-
----
-
-## License
-
-See [LICENSE](LICENSE) for details.
